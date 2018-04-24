@@ -44,3 +44,11 @@ CREATE ROLE postgres LOGIN CREATEDB PASSWORD 'postgres';
 ```ruby
 mix run priv/repo/seeds.exs
 ```
+
+### server:
+
+```ruby
+mix phx.server
+http://localhost:4000/graphiql
+````
+
