@@ -39,3 +39,8 @@ psql
 CREATE ROLE postgres LOGIN CREATEDB PASSWORD 'postgres';
 ```
 
+
+### add seeds with faker:
+```ruby
+mix run priv/repo/seeds.exs
+```
