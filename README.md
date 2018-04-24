@@ -17,3 +17,25 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+```ruby
+  mix phx.new graphical --no-html --no-brunch
+```
+
+```ruby
+mix do deps.get, compile
+```
+
+```ruby
+mix phx.gen.json Accounts User users name:string email:string
+```
+
+```ruby
+mix phx.gen.json Posts Post posts title:string body:text user_id:references:users
+```
+
+```
+psql
+CREATE ROLE postgres LOGIN CREATEDB PASSWORD 'postgres';
+```
+
