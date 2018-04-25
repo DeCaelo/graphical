@@ -23,8 +23,8 @@ defmodule Graphical.Accounts.User do
 
   def update_changeset(%User{} = user, params \\ %{}) do
     user
-    |> cast(params, [:name, :email], [:password])
-    |> validate_required([:name, :email])
+    |> cast(params, [:name, :email, :password])
+    |> validate_required([:name, :email, :password])
     |> put_pass_hash()
   end
 
