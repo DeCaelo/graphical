@@ -147,3 +147,13 @@ mutation UpdateUser {
 ```ruby
 mix ecto.gen.migration add_token_to_users
 ```
+
+#### user login:
+
+```js
+mutation LoginUser {
+  login(email:"test@example.com", password: "password") {
+    token
+  }
+}
+```

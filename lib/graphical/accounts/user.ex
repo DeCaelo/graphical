@@ -2,6 +2,7 @@ defmodule Graphical.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
   alias Graphical.Accounts.User
+  alias Graphical.Repo
 
 
   schema "users" do
@@ -49,6 +50,21 @@ defmodule Graphical.Accounts.User do
         put_change(changeset, :password_hash, Comeonin.Bcrypt.hashpwsalt(password))
       _ ->
         changeset
+    end
+  end
+
+  def authenticate(params) do
+    user = Repo.get_by(User, email: String.downcase(params.email))
+    case check_password(user, params.password) do
+      true -> {:ok, user}
+      _ -> {:error, "Incorrect login credentials"}
+    end
+  end
+
+  defp check_password(user, password) do
+    case user do
+      nil -> false
+      _ -> Comeonin.Bcrypt.checkpw(password, user.password_hash)
     end
   end
 end
