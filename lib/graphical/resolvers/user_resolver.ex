@@ -17,10 +17,10 @@ defmodule Graphical.UserResolver do
         |> Graphical.Accounts.update_user(user_params)
     end
 
-    def login(params, _info) do
+        def login(params, _info) do
         with {:ok, user} <- Graphical.Accounts.User.authenticate(params),
-             {:ok, jwt, _ } <- Graphical.Guardian.encode_and_sign(user),
-             {:ok, _ } <- Graphical.Accounts.store_user(user, jwt)
+            {:ok, jwt, _ } <- Graphical.Guardian.encode_and_sign(user),
+            {:ok, _ } <- Graphical.Accounts.store_user(user, jwt)
         do
             {:ok, %{token: jwt}}
         end
