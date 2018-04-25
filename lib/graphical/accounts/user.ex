@@ -7,6 +7,7 @@ defmodule Graphical.Accounts.User do
   schema "users" do
     field :email, :string
     field :name, :string
+    field :token, :string
     field :password, :string, virtual: true
     field :password_hash, :string
     has_many :posts, Graphical.Posts.Post
@@ -32,6 +33,13 @@ defmodule Graphical.Accounts.User do
     user
     |> cast(params, [:name, :email, :password])
     |> validate_required([:name, :email, :password])
+    |> put_pass_hash()
+  end
+
+  def store_token_changeset(%User{} = user, params \\ %{}) do
+    user
+    |> cast(params, [:token])
+    |> validate_required([:token])
     |> put_pass_hash()
   end
 

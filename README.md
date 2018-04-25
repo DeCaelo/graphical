@@ -141,3 +141,9 @@ mutation UpdateUser {
   }
 }
 ```
+
+#### add context plug to authorize with jwt:
+
+```ruby
+mix ecto.gen.migration add_token_to_users
+```
