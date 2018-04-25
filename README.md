@@ -122,3 +122,22 @@ end
 ```
 
 => mix ecto.migrate
+
+#### update user:
+
+```ruby
+{
+  user(id:1) {
+    name,
+    email
+  }
+}
+```
+
+```ruby
+mutation UpdateUser {
+  update_user(id:1, user:{name:"Jake Doe", email:"test@example", password:"random"}) {
+    id
+  }
+}
+```

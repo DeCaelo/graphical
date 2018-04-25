@@ -1,6 +1,7 @@
 defmodule Graphical.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Graphical.Accounts.User
 
 
   schema "users" do
