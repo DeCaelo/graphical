@@ -15,5 +15,15 @@ defmodule GraphicalWeb.Schema do
             arg :id, non_null(:id)
             resolve &Graphical.UserResolver.find/2
         end
+
+        mutation do
+            field :create_post, type: :post do
+                arg :title, non_null(:string)
+                arg :body, non_null(:string)
+                arg :user_id, non_null(:integer)
+
+                resolve &Graphical.PostResolver.create/2
+            end
+        end
     end
 end
