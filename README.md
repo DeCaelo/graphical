@@ -97,3 +97,28 @@ mutation DeletePost {
   }
 }
 ```
+
+#### generate guardian secret key:
+
+```ruby
+mix guardian.gen.secret
+gu+sCATTZK1cQ7PaOqiEKdbWOr/oKocUnyTdx/Cx7fwuISwTuAmSnr6uXTvMie7K
+```
+
+docs: https://github.com/ueberauth/guardian
+
+#### new migration with password hash:
+
+```ruby
+mix ecto.gen.migration add_password_hash
+```
+
+& alter users table with password_hash string:
+
+```ruby
+alter table(:users) do
+  add :password_hash, :string
+end
+```
+
+=> mix ecto.migrate
