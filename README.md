@@ -87,3 +87,13 @@ mutation UpdatePost {
   }
 }
 ```
+
+#### delete post mutation:
+
+```js
+mutation DeletePost {
+  delete_post(id:11) {
+    id,
+  }
+}
+```
