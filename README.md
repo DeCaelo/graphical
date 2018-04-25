@@ -75,3 +75,15 @@ mutation CreatePost {
   }
 }
 ```
+
+#### update post mutation:
+
+```js
+mutation UpdatePost {
+  update_post(id:11, post:{title:"updated post", body:"this post was updated", user_id:2}) {
+    id,
+    title,
+    body
+  }
+}
+```
